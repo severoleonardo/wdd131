@@ -3,15 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu</title>
+    <title>WDD 131 - Dynamic Web Fundamentals - Leonardo Severo</title>
+    <meta name="description" content="WDD 131 - Dynamic Web Fundamentals - Leonardo Severo.">
+    <meta name="author" content="Leonardo Severo">
+    <link rel="stylesheet" href="styles/base.css">
+    <script src="scripts/getdates.js" defer></script>
 </head>
 <body>
-    <menu> 
+    <header>
+        <h1>WDD 131 - Dynamic Web Fundamentals</h1>
+        <nav>
+            <a href="https://www.linkedin.com/in/severoleonardo/" target="_blank">LinkedIn</a>
+            <a href="https://byui.instructure.com/" target="_blank">I-Learn</a>
+            <a href="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/26?lang=eng&id=p317#p22" target="_blank">Scripture</a>
+            <a href="#">Final Project</a>
+        </nav>
+    </header>
+    <main>
+        <section class="card">
+            <h2>About me</h2>
+            <img src="images/exemplo1.jpg" alt="Exemplo 1">
+            <p>Conteúdo da seção 1. Inclua links para recursos interessantes:</p>
+            <ul>
+                <li><a href="https://exemplo1.com" target="_blank">Recurso 1</a></li>
+                <li><a href="https://exemplo2.com" target="_blank">Recurso 2</a></li>
+                <li><a href="https://exemplo3.com" target="_blank">Recurso 3</a></li>
+            </ul>
+        </section>
+        <section class="card">
+            <h2>Web Dev Resources</h2>
+            <img src="images/exemplo2.jpg" alt="Exemplo 2">
+            <p>Conteúdo da seção 2. Inclua links para recursos interessantes:</p>
+            <ul>
+                <li><a href="https://exemplo4.com" target="_blank">Recurso 4</a></li>
+                <li><a href="https://exemplo5.com" target="_blank">Recurso 5</a></li>
+                <li><a href="https://exemplo6.com" target="_blank">Recurso 6</a></li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; <span id="currentyear"></span> Leonardo Severo - Brazil.</p>
+        <p id="lastModified"></p>
         <ul>
             <li><a href="./WDD Holy Grail Layout/">WDD Holy Grail Layout</a></li>
             <li><a href="./Menu using CSS Flex/index.html">Menu using CSS Flex</a></li>
             <li><a href="./week01/basic-layout.html">week01</a></li>
         </ul>
-    </menu>
+    </footer>
+    
 </body>
 </html>
