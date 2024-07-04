@@ -7,6 +7,7 @@ body {
     padding: 0;
     box-sizing: border-box;
     line-height: 1.6;
+    background-color: #f4f4f9;
 }
 
 header, footer {
@@ -16,39 +17,116 @@ header, footer {
     padding: 1em 0;
 }
 
+header h1 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+header h1 span {
+    color: #ffd700; /* Dourado para destaque */
+}
+
 nav {
     display: flex;
     justify-content: center;
     gap: 1em;
+    background-color: #444;
+    padding: 0.5em 0;
 }
 
 nav a {
     color: #fff;
     text-decoration: none;
+    font-weight: bold;
+    padding: 0.5em;
 }
 
 nav a:hover {
-    text-decoration: underline;
+    background-color: #555;
+    border-radius: 5px;
 }
 
 main {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 2em auto;
     padding: 0 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.container {
+    display: flex;
+    gap: 1em;
 }
 
 .card {
-    background: #f4f4f4;
-    margin: 1em 0;
+    background: #fff;
     padding: 1em;
     border: 1px solid #ccc;
     border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Adiciona esta regra para garantir que o conteúdo interno flutue corretamente */
 }
 
 .card h2 {
     margin-top: 0;
+    background-color: #0066cc; /* Azul para os títulos */
+    color: #fff;
+    padding: 0.5em;
+    border-radius: 5px 5px 0 0;
+}
+
+.card img {
+    max-width: 150px; /* Ajuste para o tamanho desejado das imagens */
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1em;
+}
+
+.float-left {
+    
+    margin-right: 1em;
+    float: inline-end;
+
+}
+
+.float-right {
+    float: inline-end;
+    margin-left: 1em;
 }
 
 footer p {
     margin: 0.5em 0;
+    
+}
+
+footer p:first-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+}
+
+footer span#currentyear {
+    font-weight: bold;
+}
+
+.about-me {
+    flex: 2;
+}
+
+.resources {
+    flex: 1;
+}
+
+
+
+/* Classe para controlar a organização de texto e imagem */
+.image-text {
+    display: flex;
+}
+
+.image-text img {
+    margin: 0 1em 1em 0;
 }
