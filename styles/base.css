@@ -18,6 +18,7 @@ header, footer {
 }
 
 header h1 {
+
     margin: 0;
     font-size: 1.5em;
 }
@@ -30,7 +31,7 @@ nav {
     display: flex;
     justify-content: center;
     gap: 1em;
-    background-color: #444;
+    background-color: hsl(221, 65%, 75%);
     padding: 0.5em 0;
 }
 
@@ -42,7 +43,7 @@ nav a {
 }
 
 nav a:hover {
-    background-color: #555;
+    background-color: #cdc3c3;
     border-radius: 5px;
 }
 
@@ -53,6 +54,18 @@ main {
     display: flex;
     flex-direction: column;
     gap: 1em;
+}
+
+@media (max-width: 768px) {
+    main {
+        max-width: 100%;
+        flex-direction: row;
+        gap: 0.5em;
+    }
+
+    .card {
+        flex: 1;
+    }
 }
 
 .container {
@@ -71,21 +84,21 @@ main {
 
 .card h2 {
     margin-top: 0;
-    background-color: #0066cc; /* Azul para os títulos */
+    background-color: #2455c6; /* Azul para os títulos */
     color: #fff;
     padding: 0.5em;
     border-radius: 5px 5px 0 0;
 }
 
 .card img {
-    max-width: 150px; /* Ajuste para o tamanho desejado das imagens */
+    max-width: 310px; /* Ajuste para o tamanho desejado das imagens */
+    object-fit: contain;
     height: auto;
     border-radius: 8px;
     margin-bottom: 1em;
 }
 
 .float-left {
-    
     margin-right: 1em;
     float: inline-end;
 
