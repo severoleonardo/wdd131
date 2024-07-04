@@ -31,12 +31,12 @@ nav {
     display: flex;
     justify-content: center;
     gap: 1em;
-    background-color: hsl(221, 65%, 75%);
+    background-color: #2455c6;
     padding: 0.5em 0;
 }
 
 nav a {
-    color: #333;
+    color: #fff;
     text-decoration: none;
     font-weight: bold;
     padding: 0.5em;
