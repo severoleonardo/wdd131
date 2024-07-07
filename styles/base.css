@@ -43,7 +43,7 @@ nav a {
 }
 
 nav a:hover {
-    background-color: #cdc3c3;
+    background-color: #333;
     border-radius: 5px;
 }
 

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temple Album</title>
+    
+    <link rel="stylesheet" href="styles/temples.css">
+    <link rel="stylesheet" href="styles/temples-large.css">
+    <script src="scripts/temples.js" defer></script>
+    <script src="scripts/getdates.js" defer></script>
+    <!-- <link rel="stylesheet" href="styles/base.css"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap"
+    rel="stylesheet">
+    <!-- <link rel="stylesheet" href="styles/main.css"> -->
+</head>
+<body>
+    <header>
+        <h1>Temple Album</h1>
+        <nav>
+            <ul id="menu">
+                <li><a id="toggleMenu">&equiv;</a></li>
+                <li><a href="#" target="_blank" class="active">Home</a></li>
+                <li><a href="#" target="_blank">Old</a></li>
+                <li><a href="#" target="_blank">New</a></li>
+                <li><a href="#" target="_blank">Large</a></li>
+                <li><a href="#" target="_blank">Small</a></li>
+            </ul>
+            
+        </nav>
+    </header>
+    <main id="gridly">
+
+        <select id="filtered" title="Choose a data filter or sorting option.">
+            <option value="" disabled selected>Filter or Sort Temples</option>
+            <option value="utah">Utah</option>
+            <option value="notutah">Outside of Utah</option>
+            <option value="older">Built Before 1950</option>
+            <option value="all">No Filter</option>
+            <option value="alphabetical">Sort Alphabetically</option>
+        </select>
+        
+        <div id="temples">
+        </div>
+
+    </main>
+    <footer>
+        <p>&copy; <span id="currentyear"></span> Leonardo Severo - Brazil.</p>
+        <p id="lastModified"></p>
+    </footer>
+    
+</body>
+</html>
