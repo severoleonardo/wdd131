@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ribeirão Preto</title>
+    <link rel="stylesheet" href="styles/place.css">
+    <script src="/scripts/place.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Ribeirão Preto</h1>
+    </header>
+    <main>
+        <section class="data">
+            <h2>Data</h2>
+            <p><strong>Area:</strong> 650,9 km²</p>
+            <p><strong>Population:</strong> 703.293</p>
+            <p><strong>Capital:</strong> Ribeirão Preto</p>
+            <p><strong>Languages:</strong> Português</p>
+            <p><strong>Currency:</strong> Real</p>
+            <p><strong>Time zone:</strong> UTC-3</p>
+            <p><strong>Calling code:</strong> +55</p>
+            <p><strong>Internet TLD</strong> .br</p>
+        </section>
+        <section class="image">
+            <img src="images/ribeirao-preto-sp-cidade.webp" 
+                 srcset="images/ribeirao-preto-small.webp 600w, images/ribeirao-preto-sp-cidade.webp 1200w" 
+                 sizes="(max-width: 600px) 600px, 1200px" 
+                 alt="Imagem de Ribeirão Preto">
+        </section>
+        <section class="weather">
+            <h2>Clima ⛅</h2>
+            <p><strong>Temperature:</strong> <span id="temperature">25°C</span></p>
+            <p><strong>Conditions:</strong> Parcialmente Nublado</p>
+            <p><strong>Wind:</strong> <span id="wind-speed">10 km/h</span></p>
+            <p><strong>Wind Chill:</strong> <span id="wind-chill">N/A</span></p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; <span id="currentyear"></span> Leonardo Severo - Brazil.</p>
+        <p id="last-modified"></p>
+    </footer>
+</body>
+</html>
