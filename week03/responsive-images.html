@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Responsive Images Example">
+    <meta name="author" content="Leonardo Severo">
+    <link rel="stylesheet" href="./week03/styles/responsive-images.css">
+    <script src="scripts/getdates.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <div class="hero">
+            <picture>
+                <img src="/week03/images/image1.webp" alt="Temple in Utah" width="1500" height="750">
+                <img src="/week03/images/image1.webp" media="(min-width: 1000px)">
+                <img src="/week03/images/image1.webp" media="(min-width: 500px)">
+            </picture>
+        </div>
+    </main>
+    <footer>
+        <p>Last modified: <span id="lastModified"></span></p>
+        <p>&copy; <span id="currentyear"></span> Leonardo Severo</p>
+</body>
+</html>
