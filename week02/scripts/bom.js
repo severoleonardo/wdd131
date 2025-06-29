@@ -35,7 +35,9 @@ button.addEventListener("click", () => {
   input.focus();
 
   // Enable delete functionality
-  deleteButton.addEventListener("click", () => {
-    list.removeChild(li);
-  });
+  list.addEventListener("click", (e) => {
+  if (e.target.tagName === "BUTTON") {
+    list.removeChild(e.target.parentElement);
+  }
+});
 });
