@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design Principles</title>
+  <meta name="author" content="Leonardo Severo" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/design.css" />
+  <script src="../scripts/getdates.js" defer></script>
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <h1>Design Principles</h1>
+    </header>
+
+    <div class="banner" role="banner">
+      <p>Welcome to good design!</p>
+    </div>
+
+    <main>
+      <section class="design-introduction">
+        <h2>Design Principles Matter</h2>
+        <p>Design should be functional and visually pleasing. Alignment, repetition, and contrast help guide user focus and create consistency.</p>
+        <p>Typography and spacing are just as important as images in communicating a brand’s tone and information hierarchy.</p>
+      </section>
+
+      <section class="design-checklist">
+        <h3>Design Checklist</h3>
+        <ul>
+          <li>Use consistent spacing and alignment</li>
+          <li>Maintain accessible color contrast</li>
+          <li>Limit the number of fonts and weights</li>
+          <li>Use white space intentionally</li>
+          <li>Test layout responsiveness</li>
+        </ul>
+      </section>
+
+      <aside class="callout" role="note">
+        <h3>Design Tip</h3>
+        <p><strong>💡 Tip:</strong> Make sure your text and background colors have good contrast.</p>
+      </aside>
+
+      <article class="statement">
+        <h2>📘 Reflections on Implementation</h2>
+        <p>
+          While working on this activity, I chose to apply design principles that I’ve learned both from lessons and guided experimentation. 
+          I adjusted color contrast to improve accessibility, used <code>CSS Grid</code> with proportional columns (<code>2fr 1fr</code>) 
+          to achieve a more fluid and responsive layout across screen sizes, and replaced outdated elements like 
+          <code>&lt;marquee&gt;</code> with more semantic and stable alternatives.
+        </p>
+      </article>
+    </main>
+  </div>
+
+  <footer>
+    <p>&copy; <span id="currentyear"></span> Leonardo Severo - Brazil</p>
+    <p id="lastModified"></p>
+  </footer>
+</body>
+</html>

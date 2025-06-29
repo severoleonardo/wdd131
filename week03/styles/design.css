@@ -1,0 +1,173 @@
+/* Variáveis CSS para cores */
+:root {
+  --primary-color: #702963; /* Roxo principal */
+  --secondary-color: #f4b400; /* Amarelo para destaque */
+  --light-bg-color: #f4f4f4; /* Cinza claro para fundos */
+  --dark-text-color: #222; /* Cor de texto escura */
+  --light-text-color: #fff; /* Cor de texto clara */
+  --callout-bg-color: #fef9e7; /* Fundo para caixas de destaque */
+  --callout-border-color: #f4b400; /* Borda para caixas de destaque */
+  --statement-bg-color: #f8f8ff; /* Fundo para declarações/reflexões */
+  --statement-border-color: #2563eb; /* Borda para declarações/reflexões */
+  --code-bg-color: #e0e7ff; /* Fundo para blocos de código */
+  --error-color: #b71c1c; /* Cor para mensagens de erro/alerta */
+}
+
+/* Reset básico e tipografia */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: var(--dark-text-color);
+}
+
+/* Layout principal */
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: var(--primary-color);
+  color: var(--light-text-color);
+  padding: 1.5rem 1rem;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.banner {
+  background-color: var(--light-bg-color);
+  padding: 1rem;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: var(--dark-text-color);
+}
+
+main {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas: 
+    "title title"
+    "content sidebar";
+  gap: 2rem;
+  padding: 2rem;
+  flex-grow: 1;
+}
+
+main h2 {
+  grid-area: title;
+  text-align: left;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  color: var(--primary-color);
+}
+
+.design-introduction {
+  grid-area: content;
+}
+
+.design-checklist {
+  grid-area: sidebar;
+}
+
+/* Seções de conteúdo */
+.design-introduction p,
+.design-checklist ul,
+.statement p {
+  margin-bottom: 1rem;
+}
+
+.design-checklist ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+.design-checklist li {
+  margin-bottom: 0.5rem;
+}
+
+/* Componentes específicos */
+.callout {
+  background-color: var(--callout-bg-color);
+  border-left: 4px solid var(--callout-border-color);
+  padding: 1rem;
+  font-size: 0.95rem;
+  color: var(--dark-text-color);
+  border-radius: 4px;
+  margin-top: 1rem;
+  grid-column: 1 / -1;
+}
+
+.callout h3 {
+  margin-bottom: 0.5rem;
+  color: var(--error-color);
+}
+
+.statement {
+  background-color: var(--statement-bg-color);
+  border-left: 4px solid var(--statement-border-color);
+  padding: 1.5rem;
+  margin: 2rem 0;
+  border-radius: 6px;
+  color: var(--dark-text-color);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  grid-column: 1 / -1;
+}
+
+.statement h2 {
+  margin-bottom: 1rem;
+  color: var(--statement-border-color);
+  font-size: 1.5rem;
+}
+
+.statement code {
+  background-color: var(--code-bg-color);
+  padding: 0 0.3rem;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+/* Rodapé */
+footer {
+  background-color: #333;
+  color: var(--light-text-color);
+  text-align: left;
+  padding: 1rem;
+  margin-top: auto; /* Empurra o rodapé para baixo */
+}
+
+footer p {
+  margin: 0;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      "title"
+      "content"
+      "sidebar";
+  }
+
+  main h2 {
+    text-align: center;
+  }
+
+  .statement {
+    margin: 1rem 0;
+  }
+}
+
