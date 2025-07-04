@@ -1,0 +1,191 @@
+/* Color Palette Inspired by Ribeirão Preto */
+:root {
+  --primary-color: #4e944f;
+  --secondary-color: #a3b18a;
+  --accent-color: #f4a261;
+  --background-color: #fefae0;
+  --text-color: #2f3e46;
+  --white: #ffffff;
+}
+
+/* =================== */
+/*     Base Styles     */
+/* =================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* =================== */
+/*       Header        */
+/* =================== */
+header {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 1.5rem;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.5rem;
+}
+
+/* =================== */
+/*     Hero Image      */
+/* =================== */
+.hero {
+  position: relative;
+  width: 100%;
+}
+
+.hero picture,
+.hero img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =================== */
+/*  City Data & Weather Cards */
+/* =================== */
+.city-data,
+.weather {
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(0.5px);
+  z-index: 2;
+  width: 90%;
+  max-width: 300px;
+  margin: 1rem auto; /* Centraliza e adiciona margem para evitar sobreposição */
+}
+
+/* Desktop Positioning for Cards */
+@media (min-width: 768px) {
+  .city-data,
+  .weather {
+    position: absolute; /* Volta para absoluto no desktop */
+  }
+  .city-data {
+    top: 20%;
+    left: 5%;
+  }
+  .weather {
+    bottom: 5%;
+    right: 5%;
+  }
+}
+
+/* City Data Section */
+.city-data h2 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.city-data ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.city-data li {
+  margin-bottom: 0.5rem;
+}
+
+.section-icon {
+  width: 48px;
+  height: auto;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.city-data h2,
+.weather h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Weather Section */
+.weather h2 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.weather ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.weather li {
+  margin-bottom: 0.5rem;
+}
+
+/* =================== */
+/*       Footer        */
+/* =================== */
+footer {
+  background-color: var(--text-color);
+  color: var(--white);
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+/* =================== */
+/* Responsive Layout   */
+/* =================== */
+@media (min-width: 768px) {
+  main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .hero {
+    grid-column: 1 / -1;
+  }
+
+  .section-icon {
+    display: none; /* Oculta o SVG no desktop */
+  }
+
+  .weather h2::before {
+    content: '⛅'; /* Emoticon para o clima */
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+  }
+
+/* Mobile Specific Styles */
+@media (max-width: 768px) {
+  .city-data,
+  .weather {
+    position: static;
+    width: 90%;
+    margin: 1rem auto;
+  }
+
+  .weather h2::after {
+    content: ''; /* Remove emoji no mobile */
+  }
+
+  .section-icon {
+    display: block; /* Exibe o SVG no mobile */
+  }
+}
+
+  .hero img {
+    width: 100%;
+    height: auto;
+  }
+}
