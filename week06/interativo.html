@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quiz interativo sobre IA nos videogames e formulário para compartilhar seu jogo favorito.">
+    <title>Interativo - AI nos Games</title>
+    <link rel="stylesheet" href="/week06/styles/style.css" />
+    <script src="/week06/scripts/script.js"></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <h1 class="logo">AI nos Games</h1>
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="evolucao.html" class="nav-link">Evolução</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="interativo.html" class="nav-link active" aria-current="page">Interativo</a>
+                    </li>
+                </ul>
+                <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Abrir menu de navegação">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="hero-container">
+                <h2 class="hero-title">Teste Seus Conhecimentos</h2>
+                <p class="hero-subtitle">Quiz interativo sobre IA nos videogames e compartilhe seu jogo favorito</p>
+            </div>
+        </section>
+
+        <section class="quiz-section">
+            <div class="container">
+                <h2 class="section-title">Quiz: IA nos Videogames</h2>
+                <div class="quiz-container" id="quiz-container">
+                    <div class="quiz-header">
+                        <div class="quiz-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progress-fill"></div>
+                            </div>
+                            <span class="progress-text" id="progress-text">Pergunta 1 de 5</span>
+                        </div>
+                        <div class="quiz-score">
+                            <span id="score-display">Pontuação: 0</span>
+                        </div>
+                    </div>
+
+                    <div class="quiz-content" id="quiz-content">
+                        <div class="question-container" id="question-container">
+                            <h3 class="question-title" id="question-title">Carregando pergunta...</h3>
+                            <div class="answers-container" id="answers-container">
+                                <!-- Respostas serão inseridas dinamicamente -->
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-controls">
+                            <button type="button" class="btn btn-secondary" id="prev-btn" disabled>Anterior</button>
+                            <button type="button" class="btn btn-primary" id="next-btn" disabled>Próxima</button>
+                        </div>
+                    </div>
+
+                    <div class="quiz-result" id="quiz-result">
+                        <h3 class="result-title" id="result-title">Parabéns!</h3>
+                        <p class="result-score" id="result-score">Sua pontuação: 0/5</p>
+                        <p class="result-message" id="result-message">Mensagem de resultado</p>
+                        <button type="button" class="btn btn-primary" id="restart-btn">Refazer Quiz</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="form-section">
+            <div class="container">
+                <h2 class="section-title">Compartilhe Seu Jogo Favorito</h2>
+                <div class="form-container">
+                    <form class="game-form" id="game-form">
+                        <div class="form-group">
+                            <label for="user-name" class="form-label">Seu Nome</label>
+                            <input type="text" id="user-name" name="userName" class="form-input" required 
+                                   placeholder="Digite seu nome" autocomplete="name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="game-title" class="form-label">Nome do Jogo</label>
+                            <input type="text" id="game-title" name="gameTitle" class="form-input" required 
+                                   placeholder="Ex: Shadow of Mordor">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="game-genre" class="form-label">Gênero</label>
+                            <select id="game-genre" name="gameGenre" class="form-select" required>
+                                <option value="">Selecione um gênero</option>
+                                <option value="acao">Ação</option>
+                                <option value="aventura">Aventura</option>
+                                <option value="rpg">RPG</option>
+                                <option value="estrategia">Estratégia</option>
+                                <option value="fps">FPS</option>
+                                <option value="esporte">Esporte</option>
+                                <option value="corrida">Corrida</option>
+                                <option value="puzzle">Puzzle</option>
+                                <option value="simulacao">Simulação</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <!-- <label class="form-label">Como você avalia a IA do jogo?</label> -->
+                            <div class="rating-container">
+                                <input type="radio" id="rating-1" name="aiRating" value="1" class="rating-input">
+                                <label for="rating-1" class="rating-label">⭐</label>
+                                
+                                <input type="radio" id="rating-2" name="aiRating" value="2" class="rating-input">
+                                <label for="rating-2" class="rating-label">⭐</label>
+                                
+                                <input type="radio" id="rating-3" name="aiRating" value="3" class="rating-input">
+                                <label for="rating-3" class="rating-label">⭐</label>
+                                
+                                <input type="radio" id="rating-4" name="aiRating" value="4" class="rating-input">
+                                <label for="rating-4" class="rating-label">⭐</label>
+                                
+                                <input type="radio" id="rating-5" name="aiRating" value="5" class="rating-input">
+                                <label for="rating-5" class="rating-label">⭐</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ai-description" class="form-label">Descreva a IA do jogo</label>
+                            <textarea id="ai-description" name="aiDescription" class="form-textarea" rows="4" 
+                                      placeholder="Conte-nos sobre como a IA funciona neste jogo e o que a torna especial..."></textarea>
+                        </div>
+                        
+                        <!-- <div class="form-group">
+                            <label class="form-checkbox-container">
+                                <input type="checkbox" id="newsletter" name="newsletter" class="form-checkbox">
+                                <span class="checkmark"></span>
+                                Quero receber novidades sobre IA em jogos
+                            </label>
+                        </div> --> 
+
+                        <button type="submit" class="btn btn-primary btn-full">Compartilhar Jogo</button>
+                    </form>
+
+                    <div class="form-success" id="form-success">
+                        <h3 class="success-title">Obrigado!</h3>
+                        <p class="success-message">Seu jogo foi adicionado à nossa lista. Confira abaixo os jogos compartilhados:</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="shared-games">
+            <div class="container">
+                <h2 class="section-title">Jogos Compartilhados</h2>
+                <div class="games-grid" id="games-grid">
+                    <p class="no-games">Nenhum jogo compartilhado ainda. Seja o primeiro!</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="container">
+                <h2 class="cta-title">Continue Explorando</h2>
+                <p class="cta-description">
+                    Volte ao início para aprender mais sobre IA nos jogos ou explore a evolução 
+                    através das gerações de consoles.
+                </p>
+                <div class="cta-buttons">
+                    <a href="index.html" class="btn btn-primary">Início</a>
+                    <a href="evolucao.html" class="btn btn-secondary">Evolução</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">AI nos Games</h3>
+                    <p class="footer-description">
+                        Explorando a evolução da inteligência artificial nos videogames.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Navegação</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html" class="footer-link">Início</a></li>
+                        <li><a href="evolucao.html" class="footer-link">Evolução</a></li>
+                        <li><a href="interativo.html" class="footer-link">Interativo</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Créditos</h4>
+                    <p class="footer-credits">
+                        Projeto desenvolvido para curso de desenvolvimento web.<br>
+                        Imagens: Fontes diversas da internet para fins educacionais.
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    &copy; <span id="currentyear"></span>  Leonardo Severo · Projeto educacional ·
+                    <span id="lastModified"></span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+</html>
+

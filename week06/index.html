@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore a evolução da inteligência artificial nos videogames, desde Pong até sistemas adaptativos modernos.">
+    <title>AI nos Games - Inteligência Artificial nos Videogames</title>
+    <link rel="stylesheet" href="/week06/styles/style.css" />
+    <script src="/week06/scripts/script.js"></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <h1 class="logo">AI nos Games</h1>
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link active" aria-current="page">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/week06/evolucao.html" class="nav-link">Evolução</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/week06/interativo.html" class="nav-link">Interativo</a>
+                    </li>
+                </ul>
+                <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Abrir menu de navegação">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="hero-container">
+                <h2 class="hero-title">A Evolução da Inteligência Artificial nos Videogames</h2>
+                <p class="hero-subtitle">Descubra como a IA transformou os jogos, desde os primeiros algoritmos até sistemas adaptativos modernos</p>
+                <img src="/week06/images/ia_games_concept.jpg" alt="Conceito de IA em jogos mostrando desenvolvedores trabalhando com tecnologia" class="hero-image" loading="lazy">
+            </div>
+        </section>
+
+        <section class="concept">
+            <div class="container">
+                <h2 class="section-title">O que é IA nos Jogos?</h2>
+                <div class="concept-content">
+                    <p class="concept-text">
+                        IA nos jogos refere-se a algoritmos de computador que criam comportamentos responsivos, 
+                        adaptativos ou inteligentes em personagens não jogáveis (NPCs) e ambientes de jogo. 
+                        A Inteligência Artificial nos jogos vai além dos comportamentos pré-programados e árvores 
+                        de decisão lineares que eram a norma nos primeiros videogames.
+                    </p>
+                    <p class="concept-text">
+                        Os sistemas de IA atuais podem aprender com as ações dos jogadores e variáveis do ambiente, 
+                        mudando dinamicamente a dificuldade do jogo e o fluxo narrativo. Isso cria uma experiência 
+                        mais personalizada e desafiadora, pois a IA pode se adaptar ao nível de habilidade e estilo 
+                        de jogo do jogador.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="pioneers">
+            <div class="container">
+                <h2 class="section-title">Os Pioneiros da IA em Jogos</h2>
+                <div class="pioneers-grid">
+                    <article class="pioneer-card">
+                        <img src="images/pong_game.png" alt="Tela do jogo Pong mostrando duas raquetes e uma bola" class="pioneer-image" loading="lazy">
+                        <div class="pioneer-content">
+                            <h3 class="pioneer-title">Pong (1972)</h3>
+                            <p class="pioneer-description">
+                                O primeiro exemplo de IA em jogos. A "inteligência artificial" do adversário era 
+                                extremamente rudimentar, mas eficaz: simplesmente movia sua raquete verticalmente 
+                                para interceptar a bola. A simplicidade da IA em Pong demonstra como até mesmo 
+                                regras básicas podem criar um desafio envolvente.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="pioneer-card">
+                        <img src="images/pacman_game.jpg" alt="Tela do jogo Pac-Man com o labirinto e os fantasmas coloridos" class="pioneer-image" loading="lazy">
+                        <div class="pioneer-content">
+                            <h3 class="pioneer-title">Pac-Man (1980)</h3>
+                            <p class="pioneer-description">
+                                Utilizou Máquinas de Estado Finitas (FSMs) para controlar os fantasmas. Cada fantasma 
+                                (Blinky, Pinky, Inky e Clyde) possui um comportamento distinto: Blinky persegue 
+                                diretamente, Pinky tenta emboscar, e os outros têm comportamentos mais complexos. 
+                                Embora simples, as FSMs foram eficazes para criar a ilusão de inteligência.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="pioneer-card">
+                        <img src="images/chessmaster_game.png" alt="Interface do jogo Chessmaster 2000 mostrando um tabuleiro de xadrez" class="pioneer-image" loading="lazy">
+                        <div class="pioneer-content">
+                            <h3 class="pioneer-title">Chessmaster (1986)</h3>
+                            <p class="pioneer-description">
+                                Representou um salto na complexidade da IA em jogos. Ao contrário de Pong ou Pac-Man, 
+                                a IA do xadrez precisa planejar com antecedência, avaliar posições e prever movimentos. 
+                                Utilizava algoritmos como minimax com poda alfa-beta, culminando no histórico Deep Blue 
+                                que derrotou Garry Kasparov em 1997.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="container">
+                <h2 class="cta-title">Explore Mais</h2>
+                <p class="cta-description">
+                    Descubra como a IA evoluiu através das gerações de consoles e teste seus conhecimentos 
+                    com nosso quiz interativo.
+                </p>
+                <div class="cta-buttons">
+                    <a href="evolucao.html" class="btn btn-primary">Ver Evolução</a>
+                    <a href="interativo.html" class="btn btn-secondary">Quiz Interativo</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">AI nos Games</h3>
+                    <p class="footer-description">
+                        Explorando a evolução da inteligência artificial nos videogames.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Navegação</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html" class="footer-link">Início</a></li>
+                        <li><a href="evolucao.html" class="footer-link">Evolução</a></li>
+                        <li><a href="interativo.html" class="footer-link">Interativo</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Créditos</h4>
+                    <p class="footer-credits">
+                        Projeto desenvolvido para curso de desenvolvimento web.<br>
+                        Imagens: Fontes diversas da internet para fins educacionais.
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    &copy; <span id="currentyear"></span>  Leonardo Severo · Projeto educacional ·
+                    <span id="lastModified"></span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+  
+</body>
+</html>
+
