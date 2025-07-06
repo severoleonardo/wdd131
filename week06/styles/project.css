@@ -661,16 +661,16 @@ section {
 }
 
 /* Checkbox personalizado */
-.form-checkbox-container {
+/* .form-checkbox-container {
     display: flex;
     align-items: center;
     cursor: pointer;
     color: var(--text-secondary);
-}
-
+} */
+/* 
 .form-checkbox {
     display: none;
-}
+} */
 
 .checkmark {
     width: 20px;
