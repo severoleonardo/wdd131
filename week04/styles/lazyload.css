@@ -1,0 +1,17 @@
+img {
+  display: block;
+  margin: 2rem auto;
+  opacity: 0;
+  animation: fadeIn 15s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    filter: brightness(0);
+  }
+  to {
+    opacity: 1;
+    filter: brightness(1);
+  }
+}
