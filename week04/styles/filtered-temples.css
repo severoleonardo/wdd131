@@ -76,7 +76,10 @@ figure img {
 
 figcaption {
   margin-top: 0.75rem;
-  font-weight: bold;
+  font-weight: normal;
+  color: #333;
+  line-height: 1.0  ;
+
 }
 
 footer {

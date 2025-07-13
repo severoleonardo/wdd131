@@ -118,7 +118,8 @@ function displayTemples(array) {
       <img src="${temple.imageUrl}" alt="${temple.templeName}" loading="lazy">
       <figcaption>
         <h3>${temple.templeName}</h3>
-        <p>${temple.location}</p>
+        
+        <p>Location: ${temple.location}</p>
         <p>Dedicated: ${temple.dedicated}</p>
         <p>Area: ${temple.area.toLocaleString()} sq ft</p>
       </figcaption>
