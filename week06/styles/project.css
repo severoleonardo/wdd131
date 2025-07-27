@@ -35,7 +35,7 @@
     --shadow-neon: 0 0 30px var(--neon-cyan);
     
     /* Tipografia */
-    --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-primary: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --font-mono: 'Courier New', monospace;
     
     /* Transições */
