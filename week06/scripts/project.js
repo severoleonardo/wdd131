@@ -1,29 +1,30 @@
-// Dados do quiz
+
+// Quiz data
 const quizData = [
     {
-        question: "Qual foi o primeiro jogo a utilizar uma forma básica de IA?",
+        question: "What was the first game to use a basic form of AI?",
         answers: [
             "Pac-Man",
-            "Pong", 
+            "Pong",
             "Space Invaders",
             "Tetris"
         ],
         correct: 1,
-        explanation: "Pong (1972) foi um dos primeiros jogos a implementar uma forma rudimentar de IA, onde o adversário controlado pelo computador movia sua raquete para interceptar a bola."
+        explanation: "Pong (1972) was one of the first games to implement a rudimentary form of AI, where the computer-controlled opponent moved its paddle to intercept the ball."
     },
     {
-        question: "Que tipo de IA é usado para controlar os fantasmas no Pac-Man?",
+        question: "What type of AI is used to control the ghosts in Pac-Man?",
         answers: [
-            "Redes Neurais",
-            "Algoritmos Genéticos",
-            "Máquinas de Estado Finitas (FSM)",
-            "Aprendizado de Máquina"
+            "Neural Networks",
+            "Genetic Algorithms",
+            "Finite State Machines (FSM)",
+            "Machine Learning"
         ],
         correct: 2,
-        explanation: "Os fantasmas do Pac-Man utilizam Máquinas de Estado Finitas (FSM), onde cada fantasma tem comportamentos distintos baseados em estados como perseguir, dispersar ou fugir."
+        explanation: "Pac-Man ghosts use Finite State Machines (FSM), where each ghost has distinct behaviors based on states like chase, scatter, or flee."
     },
     {
-        question: "Em que ano o Deep Blue derrotou Garry Kasparov no xadrez?",
+        question: "In what year did Deep Blue defeat Garry Kasparov in chess?",
         answers: [
             "1995",
             "1996",
@@ -31,10 +32,10 @@ const quizData = [
             "1998"
         ],
         correct: 2,
-        explanation: "Em 1997, o supercomputador Deep Blue da IBM derrotou o campeão mundial de xadrez Garry Kasparov, marcando um marco histórico na IA."
+        explanation: "In 1997, IBM's Deep Blue supercomputer defeated world chess champion Garry Kasparov, marking a historic milestone in AI."
     },
     {
-        question: "Qual jogo introduziu o revolucionário Sistema Nemesis?",
+        question: "Which game introduced the revolutionary Nemesis System?",
         answers: [
             "Assassin's Creed",
             "Middle-Earth: Shadow of Mordor",
@@ -42,35 +43,35 @@ const quizData = [
             "Skyrim"
         ],
         correct: 1,
-        explanation: "Middle-Earth: Shadow of Mordor (2014) introduziu o Sistema Nemesis, onde inimigos orcs se lembram de encontros anteriores e evoluem baseado nas ações do jogador."
+        explanation: "Middle-Earth: Shadow of Mordor (2014) introduced the Nemesis System, where orc enemies remember previous encounters and evolve based on player actions."
     },
     {
-        question: "Qual geração de consoles marcou a transição para gráficos 3D e IA mais realista?",
+        question: "Which console generation marked the transition to 3D graphics and more realistic AI?",
         answers: [
-            "4ª Geração (16-bits)",
-            "5ª Geração (PlayStation/N64)",
-            "6ª Geração (PS2/Xbox)",
-            "7ª Geração (PS3/Xbox 360)"
+            "4th Generation (16-bit)",
+            "5th Generation (PlayStation/N64)",
+            "6th Generation (PS2/Xbox)",
+            "7th Generation (PS3/Xbox 360)"
         ],
         correct: 1,
-        explanation: "A 5ª geração, com PlayStation e Nintendo 64, marcou a transição para gráficos 3D e permitiu IAs mais complexas em ambientes tridimensionais."
+        explanation: "The 5th generation, with PlayStation and Nintendo 64, marked the transition to 3D graphics and enabled more complex AIs in three-dimensional environments."
     }
 ];
 
-// Estado do quiz
+// Quiz state
 let currentQuestion = 0;
 let score = 0;
 let selectedAnswer = null;
 let quizCompleted = false;
 
-// Elementos do DOM
+// DOM elements
 let quizContainer, questionTitle, answersContainer, progressFill, progressText, scoreDisplay;
 let prevBtn, nextBtn, quizContent, quizResult, resultTitle, resultScore, resultMessage, restartBtn;
 let gameForm, formSuccess, gamesGrid;
 
-// Inicialização
+// Initialization
 document.addEventListener('DOMContentLoaded', function() {
-    // Inicializar elementos do DOM
+    // Initialize DOM elements
     quizContainer = document.getElementById('quiz-container');
     questionTitle = document.getElementById('question-title');
     answersContainer = document.getElementById('answers-container');
@@ -89,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
     formSuccess = document.getElementById('form-success');
     gamesGrid = document.getElementById('games-grid');
 
-    // Inicializar funcionalidades
+    // Initialize features
     initializeQuiz();
     initializeForm();
     initializeNavigation();
@@ -97,16 +98,16 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeScrollAnimations();
     initializeSmoothScroll();
     initializeCardEffects();
-    loadSharedGames(); // Carregar jogos compartilhados na inicialização
+    loadSharedGames(); // Load shared games on initialization
     
-    // Atualizar ano e data de modificação
+    // Update year and last modified date
     const currentYearEl = document.querySelector('#currentyear');
     const lastModifiedEl = document.querySelector('#lastModified');
     if (currentYearEl) currentYearEl.textContent = new Date().getFullYear();
     if (lastModifiedEl) lastModifiedEl.textContent = `Last modified: ${document.lastModified}`;
 });
 
-// Inicializar quiz
+// Initialize quiz
 function initializeQuiz() {
     if (!quizContainer) return;
     
@@ -120,7 +121,7 @@ function initializeQuiz() {
     if (restartBtn) restartBtn.addEventListener('click', restartQuiz);
 }
 
-// Exibir pergunta atual
+// Show current question
 function displayQuestion() {
     if (currentQuestion >= quizData.length) {
         showResults();
@@ -149,21 +150,21 @@ function displayQuestion() {
     updateButtons();
 }
 
-// Selecionar resposta
+// Select answer
 function selectAnswer(index) {
     selectedAnswer = index;
     
-    // Remover seleção anterior
+    // Remove previous selection
     const options = document.querySelectorAll('.answer-option');
     options.forEach(option => option.classList.remove('selected'));
     
-    // Adicionar seleção atual
+    // Add current selection
     options[index].classList.add('selected');
     
     updateButtons();
 }
 
-// Atualizar botões
+// Update buttons
 function updateButtons() {
     if (prevBtn) {
         prevBtn.disabled = currentQuestion === 0;
@@ -171,19 +172,19 @@ function updateButtons() {
     
     if (nextBtn) {
         nextBtn.disabled = selectedAnswer === null;
-        nextBtn.textContent = currentQuestion === quizData.length - 1 ? 'Finalizar' : 'Próxima';
+        nextBtn.textContent = currentQuestion === quizData.length - 1 ? 'Finish' : 'Next';
     }
 }
 
-// Próxima pergunta
+// Next question
 function nextQuestion() {
     if (selectedAnswer === null) return;
     
-    // Verificar resposta
+    // Check answer
     const question = quizData[currentQuestion];
     const options = document.querySelectorAll('.answer-option');
     
-    // Mostrar resposta correta
+    // Show correct answer
     options.forEach((option, index) => {
         if (index === question.correct) {
             option.classList.add('correct');
@@ -192,13 +193,13 @@ function nextQuestion() {
         }
     });
     
-    // Atualizar pontuação
+    // Update score
     if (selectedAnswer === question.correct) {
         score++;
         updateScore();
     }
     
-    // Aguardar um pouco antes de avançar
+    // Wait a bit before advancing
     setTimeout(() => {
         currentQuestion++;
         displayQuestion();
@@ -206,7 +207,7 @@ function nextQuestion() {
     }, 1500);
 }
 
-// Pergunta anterior
+// Previous question
 function previousQuestion() {
     if (currentQuestion > 0) {
         currentQuestion--;
@@ -215,7 +216,7 @@ function previousQuestion() {
     }
 }
 
-// Atualizar progresso
+// Update progress
 function updateProgress() {
     const progress = ((currentQuestion + 1) / quizData.length) * 100;
     
@@ -224,18 +225,18 @@ function updateProgress() {
     }
     
     if (progressText) {
-        progressText.textContent = `Pergunta ${currentQuestion + 1} de ${quizData.length}`;
+        progressText.textContent = `Question ${currentQuestion + 1} of ${quizData.length}`;
     }
 }
 
-// Atualizar pontuação
+// Update score
 function updateScore() {
     if (scoreDisplay) {
-        scoreDisplay.textContent = `Pontuação: ${score}`;
+        scoreDisplay.textContent = `Score: ${score}`;
     }
 }
 
-// Mostrar resultados
+// Show results
 function showResults() {
     quizCompleted = true;
     
@@ -245,32 +246,32 @@ function showResults() {
     const percentage = (score / quizData.length) * 100;
     
     if (resultScore) {
-        resultScore.textContent = `Sua pontuação: ${score}/${quizData.length} (${percentage.toFixed(0)}%)`;
+        resultScore.textContent = `Your score: ${score}/${quizData.length} (${percentage.toFixed(0)}%)`;
     }
     
-    // Mensagem baseada na pontuação
+    // Message based on score
     let message = '';
     let title = '';
     
     if (percentage >= 80) {
-        title = 'Excelente! 🎉';
-        message = 'Você é um verdadeiro especialista em IA nos jogos! Seu conhecimento sobre a evolução da inteligência artificial nos videogames é impressionante.';
+        title = 'Excellent! 🎉';
+        message = 'You are a true expert in game AI! Your knowledge about the evolution of artificial intelligence in video games is impressive.';
     } else if (percentage >= 60) {
-        title = 'Muito Bem! 👏';
-        message = 'Você tem um bom conhecimento sobre IA nos jogos. Continue explorando para se tornar um especialista no assunto!';
+        title = 'Very Good! 👏';
+        message = 'You have good knowledge about game AI. Keep exploring to become an expert!';
     } else if (percentage >= 40) {
-        title = 'Bom Trabalho! 👍';
-        message = 'Você está no caminho certo! Que tal revisar o conteúdo e tentar novamente para melhorar sua pontuação?';
+        title = 'Good Job! 👍';
+        message = 'You are on the right track! How about reviewing the content and trying again to improve your score?';
     } else {
-        title = 'Continue Tentando! 💪';
-        message = 'Não desanime! A IA nos jogos é um assunto fascinante. Explore mais o site e refaça o quiz para melhorar seus conhecimentos.';
+        title = 'Keep Trying! 💪';
+        message = 'Don’t give up! Game AI is a fascinating topic. Explore more of the site and retake the quiz to improve your knowledge.';
     }
     
     if (resultTitle) resultTitle.textContent = title;
     if (resultMessage) resultMessage.textContent = message;
 }
 
-// Reiniciar quiz
+// Restart quiz
 function restartQuiz() {
     currentQuestion = 0;
     score = 0;
@@ -285,11 +286,11 @@ function restartQuiz() {
     updateScore();
 }
 
-// Inicializar formulário
+// Initialize form
 function initializeForm() {
     if (!gameForm) return;
 
-    // Prevenir envio padrão do formulário
+    // Prevent default form submission
     gameForm.addEventListener('submit', function(event) {
         event.preventDefault();
         handleFormSubmit(event);
@@ -302,7 +303,7 @@ function initializeForm() {
     });
 }
 
-// Lidar com envio do formulário
+// Handle form submission
 function handleFormSubmit(event) {
     event.preventDefault();
     
@@ -315,26 +316,26 @@ function handleFormSubmit(event) {
         aiRating: formData.get('aiRating'),
         aiDescription: formData.get('aiDescription'),
         newsletter: formData.get('newsletter') === 'on',
-        timestamp: new Date().toLocaleDateString('pt-BR')
+        timestamp: new Date().toLocaleDateString('en-US')
     };
     
-    // Validação
+    // Validation
     if (!gameData.userName || !gameData.gameTitle || !gameData.gameGenre || !gameData.aiRating) {
-        alert('Por favor, preencha todos os campos obrigatórios.');
+        alert('Please fill in all required fields.');
         return;
     }
     
-    // Salvar no localStorage
+    // Save to localStorage
     saveGameData(gameData);
     
-    // Mostrar mensagem de sucesso
+    // Show success message
     if (gameForm) gameForm.style.display = 'none';
     if (formSuccess) formSuccess.style.display = 'block';
     
-    // Atualizar lista de jogos
+    // Update shared games list
     loadSharedGames();
     
-    // Scroll para a seção de jogos compartilhados
+    // Scroll to shared games section
     setTimeout(() => {
         const sharedGamesSection = document.querySelector('.shared-games');
         if (sharedGamesSection) {
@@ -343,21 +344,21 @@ function handleFormSubmit(event) {
     }, 500);
 }
 
-// Atualizar exibição do rating
+// Update rating display
 function updateRatingDisplay() {
     const ratingInputs = document.querySelectorAll('input[name="aiRating"]');
     const ratingLabels = document.querySelectorAll('.rating-label');
 
     ratingInputs.forEach((input, index) => {
         if (input.checked) {
-            // Destacar estrelas até a selecionada (da esquerda para a direita)
+            // Highlight stars up to the selected one (left to right)
             for (let i = 0; i <= index; i++) {
                 if (ratingLabels[i]) {
                     ratingLabels[i].style.color = 'var(--neon-cyan)';
                     ratingLabels[i].style.textShadow = '0 0 10px var(--neon-cyan)';
                 }
             }
-            // Resetar estrelas após a selecionada
+            // Reset stars after the selected one
             for (let i = index + 1; i < ratingLabels.length; i++) {
                 if (ratingLabels[i]) {
                     ratingLabels[i].style.color = 'var(--text-secondary)';
@@ -368,12 +369,12 @@ function updateRatingDisplay() {
     });
 }
 
-// Salvar dados do jogo
+// Save game data
 function saveGameData(gameData) {
     let savedGames = JSON.parse(localStorage.getItem('sharedGames')) || [];
     savedGames.push(gameData);
     
-    // Limitar a 10 jogos mais recentes
+    // Limit to 10 most recent games
     if (savedGames.length > 10) {
         savedGames = savedGames.slice(-10);
     }
@@ -381,18 +382,18 @@ function saveGameData(gameData) {
     localStorage.setItem('sharedGames', JSON.stringify(savedGames));
 }
 
-// Carregar jogos compartilhados
+// Load shared games
 function loadSharedGames() {
     if (!gamesGrid) return;
     
     const savedGames = JSON.parse(localStorage.getItem('sharedGames')) || [];
     
     if (savedGames.length === 0) {
-        gamesGrid.innerHTML = '<p class="no-games">Nenhum jogo compartilhado ainda. Seja o primeiro!</p>';
+        gamesGrid.innerHTML = '<p class="no-games">No games shared yet. Be the first!</p>';
         return;
     }
     
-    // Ordenar por timestamp (mais recentes primeiro)
+    // Sort by timestamp (most recent first)
     savedGames.sort((a, b) => b.id - a.id);
     
     gamesGrid.innerHTML = '';
@@ -403,29 +404,29 @@ function loadSharedGames() {
     });
 }
 
-// Criar card do jogo
+// Create game card
 function createGameCard(game) {
     const card = document.createElement('div');
     card.className = 'game-card fade-in-up';
     const ratingValue = parseInt(game.aiRating);
     const stars = Number.isNaN(ratingValue) || ratingValue < 1 ? '' : '⭐'.repeat(ratingValue);
     const genreMap = {
-        'acao': 'Ação',
-        'aventura': 'Aventura',
+        'acao': 'Action',
+        'aventura': 'Adventure',
         'rpg': 'RPG',
-        'estrategia': 'Estratégia',
+        'estrategia': 'Strategy',
         'fps': 'FPS',
-        'esporte': 'Esporte',
-        'corrida': 'Corrida',
+        'esporte': 'Sports',
+        'corrida': 'Racing',
         'puzzle': 'Puzzle',
-        'simulacao': 'Simulação',
-        'outro': 'Outro'
+        'simulacao': 'Simulation',
+        'outro': 'Other'
     };
     
     card.innerHTML = `
         <h3 class="game-title">${escapeHtml(game.gameTitle)}</h3>
         <div class="game-meta">
-            Por: ${escapeHtml(game.userName)} • ${genreMap[game.gameGenre] || game.gameGenre} • ${game.timestamp}
+            By: ${escapeHtml(game.userName)} • ${genreMap[game.gameGenre] || game.gameGenre} • ${game.timestamp}
         </div>
         <div class="game-rating">${stars} (${game.aiRating}/5)</div>
         ${game.aiDescription ? `<p class="game-description">${escapeHtml(game.aiDescription)}</p>` : ''}
@@ -434,14 +435,14 @@ function createGameCard(game) {
     return card;
 }
 
-// Escapar HTML para segurança
+// Escape HTML for safety
 function escapeHtml(text) {
     const div = document.createElement('div');
     div.textContent = text;
     return div.innerHTML;
 }
 
-// Inicializar navegação
+// Initialize navigation
 function initializeNavigation() {
     const navToggle = document.getElementById('nav-toggle');
     const navMenu = document.getElementById('nav-menu');
@@ -451,7 +452,7 @@ function initializeNavigation() {
             navToggle.classList.toggle('active');
         });
 
-        // Fechar menu ao clicar em um link
+        // Close menu when clicking a link
         const navLinks = document.querySelectorAll('.nav-link');
         navLinks.forEach(link => {
             link.addEventListener('click', function() {
@@ -460,7 +461,7 @@ function initializeNavigation() {
             });
         });
 
-        // Fechar menu ao clicar fora
+        // Close menu when clicking outside
         document.addEventListener('click', function(event) {
             if (!navToggle.contains(event.target) && !navMenu.contains(event.target)) {
                 navMenu.classList.remove('active');
@@ -470,7 +471,7 @@ function initializeNavigation() {
     }
 }
 
-// Inicializar lazy loading
+// Initialize lazy loading
 function initializeLazyLoading() {
     const images = document.querySelectorAll('img[loading="lazy"]');
     
@@ -490,14 +491,14 @@ function initializeLazyLoading() {
         
         images.forEach(img => imageObserver.observe(img));
     } else {
-        // Fallback para navegadores sem suporte
+        // Fallback for browsers without support
         images.forEach(img => {
             img.classList.add('loaded');
         });
     }
 }
 
-// Animações de scroll
+// Initialize scroll animations
 function initializeScrollAnimations() {
     const observerOptions = {
         threshold: 0.1,
@@ -512,12 +513,12 @@ function initializeScrollAnimations() {
         });
     }, observerOptions);
     
-    // Observar elementos que devem animar
+    // Observe elements that should animate
     const animatedElements = document.querySelectorAll('.pioneer-card, .timeline-item, .game-card');
     animatedElements.forEach(el => observer.observe(el));
 }
 
-// Smooth scroll para links internos
+// Smooth scroll for internal links
 function initializeSmoothScroll() {
     const links = document.querySelectorAll('a[href^="#"]');
     
@@ -538,7 +539,7 @@ function initializeSmoothScroll() {
     });
 }
 
-// Efeitos de hover para cards
+// Initialize hover effects for cards
 function initializeCardEffects() {
     const cards = document.querySelectorAll('.pioneer-card, .game-card, .timeline-content');
     
@@ -553,7 +554,7 @@ function initializeCardEffects() {
     });
 }
 
-// Função para resetar o formulário
+// Function to reset the form
 function resetForm() {
     if (gameForm) {
         gameForm.reset();
@@ -562,7 +563,7 @@ function resetForm() {
     if (formSuccess) {
         formSuccess.style.display = 'none';
     }
-    // Resetar rating display
+    // Reset rating display
     const ratingLabels = document.querySelectorAll('.rating-label');
     ratingLabels.forEach(label => {
         label.style.color = 'var(--text-secondary)';
@@ -571,13 +572,13 @@ function resetForm() {
     loadSharedGames();
 }
 
-// Função para limpar dados salvos (para desenvolvimento/teste)
+// Function to clear saved games (for development/testing)
 function clearSavedGames() {
     localStorage.removeItem('sharedGames');
     loadSharedGames();
-    console.log('Dados de jogos compartilhados foram limpos.');
+    console.log('Shared games data has been cleared.');
 }
 
-// Adicionar ao console para facilitar testes
+// Add to console for easier testing
 window.clearSavedGames = clearSavedGames;
 
