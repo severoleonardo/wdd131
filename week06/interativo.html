@@ -7,7 +7,6 @@
     <meta name="description" content="Quiz interativo sobre IA nos videogames e formulário para compartilhar seu jogo favorito.">
     <title>Interativo - AI nos Games</title>
     <link rel="stylesheet" href="styles/project.css" />
-    <script src="scripts/project.js"></script>
 </head>
 <body>
     <header class="header">
@@ -24,12 +23,15 @@
                     <li class="nav-item">
                         <a href="interativo.html" class="nav-link active" aria-current="page">Interativo</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="../week05/project/siteplan.html" class="nav-link">Site Plan</a>
                 </ul>
                 <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Abrir menu de navegação">
                     <span class="hamburger"></span>
                     <span class="hamburger"></span>
                     <span class="hamburger"></span>
                 </button>
+                
             </div>
         </nav>
     </header>
@@ -86,7 +88,7 @@
             <div class="container">
                 <h2 class="section-title">Compartilhe Seu Jogo Favorito</h2>
                 <div class="form-container">
-                    <form class="game-form" id="game-form">
+                    <form class="game-form" id="game-form" method="post" action="#">
                         <div class="form-group">
                             <label for="user-name" class="form-label">Seu Nome</label>
                             <input type="text" id="user-name" name="userName" class="form-input" required 
@@ -200,6 +202,7 @@
                         <li><a href="project.html" class="footer-link">Início</a></li>
                         <li><a href="evolucao.html" class="footer-link">Evolução</a></li>
                         <li><a href="interativo.html" class="footer-link">Interativo</a></li>
+                        <li><a href="../week05/project/" class="footer-link">Site Plan</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -219,7 +222,7 @@
         </div>
     </footer>
 
-
+    <script src="scripts/project.js"></script>
 </body>
 </html>
 

@@ -64,37 +64,46 @@ let selectedAnswer = null;
 let quizCompleted = false;
 
 // Elementos do DOM
-const quizContainer = document.getElementById('quiz-container');
-const questionTitle = document.getElementById('question-title');
-const answersContainer = document.getElementById('answers-container');
-const progressFill = document.getElementById('progress-fill');
-const progressText = document.getElementById('progress-text');
-const scoreDisplay = document.getElementById('score-display');
-const prevBtn = document.getElementById('prev-btn');
-const nextBtn = document.getElementById('next-btn');
-const quizContent = document.getElementById('quiz-content');
-const quizResult = document.getElementById('quiz-result');
-const resultTitle = document.getElementById('result-title');
-const resultScore = document.getElementById('result-score');
-const resultMessage = document.getElementById('result-message');
-const restartBtn = document.getElementById('restart-btn');
-
-// Elementos do formulário
-const gameForm = document.getElementById('game-form');
-const formSuccess = document.getElementById('form-success');
-const gamesGrid = document.getElementById('games-grid');
-
-// Navegação mobile
-const navToggle = document.getElementById('nav-toggle');
-const navMenu = document.getElementById('nav-menu');
+let quizContainer, questionTitle, answersContainer, progressFill, progressText, scoreDisplay;
+let prevBtn, nextBtn, quizContent, quizResult, resultTitle, resultScore, resultMessage, restartBtn;
+let gameForm, formSuccess, gamesGrid;
 
 // Inicialização
 document.addEventListener('DOMContentLoaded', function() {
+    // Inicializar elementos do DOM
+    quizContainer = document.getElementById('quiz-container');
+    questionTitle = document.getElementById('question-title');
+    answersContainer = document.getElementById('answers-container');
+    progressFill = document.getElementById('progress-fill');
+    progressText = document.getElementById('progress-text');
+    scoreDisplay = document.getElementById('score-display');
+    prevBtn = document.getElementById('prev-btn');
+    nextBtn = document.getElementById('next-btn');
+    quizContent = document.getElementById('quiz-content');
+    quizResult = document.getElementById('quiz-result');
+    resultTitle = document.getElementById('result-title');
+    resultScore = document.getElementById('result-score');
+    resultMessage = document.getElementById('result-message');
+    restartBtn = document.getElementById('restart-btn');
+    gameForm = document.getElementById('game-form');
+    formSuccess = document.getElementById('form-success');
+    gamesGrid = document.getElementById('games-grid');
+
+    // Inicializar funcionalidades
     initializeQuiz();
     initializeForm();
     initializeNavigation();
     initializeLazyLoading();
-    loadSharedGames();
+    initializeScrollAnimations();
+    initializeSmoothScroll();
+    initializeCardEffects();
+    loadSharedGames(); // Carregar jogos compartilhados na inicialização
+    
+    // Atualizar ano e data de modificação
+    const currentYearEl = document.querySelector('#currentyear');
+    const lastModifiedEl = document.querySelector('#lastModified');
+    if (currentYearEl) currentYearEl.textContent = new Date().getFullYear();
+    if (lastModifiedEl) lastModifiedEl.textContent = `Last modified: ${document.lastModified}`;
 });
 
 // Inicializar quiz
@@ -208,7 +217,7 @@ function previousQuestion() {
 
 // Atualizar progresso
 function updateProgress() {
-    const progress = ((currentQuestion) / quizData.length) * 100;
+    const progress = ((currentQuestion + 1) / quizData.length) * 100;
     
     if (progressFill) {
         progressFill.style.width = `${progress}%`;
@@ -279,9 +288,13 @@ function restartQuiz() {
 // Inicializar formulário
 function initializeForm() {
     if (!gameForm) return;
-    
-    gameForm.addEventListener('submit', handleFormSubmit);
-    
+
+    // Prevenir envio padrão do formulário
+    gameForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        handleFormSubmit(event);
+    });
+
     // Rating system
     const ratingInputs = document.querySelectorAll('input[name="aiRating"]');
     ratingInputs.forEach(input => {
@@ -334,18 +347,22 @@ function handleFormSubmit(event) {
 function updateRatingDisplay() {
     const ratingInputs = document.querySelectorAll('input[name="aiRating"]');
     const ratingLabels = document.querySelectorAll('.rating-label');
-    
+
     ratingInputs.forEach((input, index) => {
         if (input.checked) {
-            // Destacar estrelas até a selecionada
+            // Destacar estrelas até a selecionada (da esquerda para a direita)
             for (let i = 0; i <= index; i++) {
-                ratingLabels[i].style.color = 'var(--neon-cyan)';
-                ratingLabels[i].style.textShadow = '0 0 10px var(--neon-cyan)';
+                if (ratingLabels[i]) {
+                    ratingLabels[i].style.color = 'var(--neon-cyan)';
+                    ratingLabels[i].style.textShadow = '0 0 10px var(--neon-cyan)';
+                }
             }
             // Resetar estrelas após a selecionada
             for (let i = index + 1; i < ratingLabels.length; i++) {
-                ratingLabels[i].style.color = 'var(--text-secondary)';
-                ratingLabels[i].style.textShadow = 'none';
+                if (ratingLabels[i]) {
+                    ratingLabels[i].style.color = 'var(--text-secondary)';
+                    ratingLabels[i].style.textShadow = 'none';
+                }
             }
         }
     });
@@ -390,8 +407,8 @@ function loadSharedGames() {
 function createGameCard(game) {
     const card = document.createElement('div');
     card.className = 'game-card fade-in-up';
-    
-    const stars = '⭐'.repeat(parseInt(game.aiRating));
+    const ratingValue = parseInt(game.aiRating);
+    const stars = Number.isNaN(ratingValue) || ratingValue < 1 ? '' : '⭐'.repeat(ratingValue);
     const genreMap = {
         'acao': 'Ação',
         'aventura': 'Aventura',
@@ -453,18 +470,6 @@ function initializeNavigation() {
     }
 }
 
-// Alternar menu mobile
-function toggleMobileMenu() {
-    navMenu.classList.toggle('active');
-    navToggle.classList.toggle('active');
-}
-
-// Fechar menu mobile
-function closeMobileMenu() {
-    navMenu.classList.remove('active');
-    navToggle.classList.remove('active');
-}
-
 // Inicializar lazy loading
 function initializeLazyLoading() {
     const images = document.querySelectorAll('img[loading="lazy"]');
@@ -474,7 +479,9 @@ function initializeLazyLoading() {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const img = entry.target;
-                    img.src = img.src; // Força o carregamento
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                    }
                     img.classList.add('loaded');
                     observer.unobserve(img);
                 }
@@ -546,22 +553,6 @@ function initializeCardEffects() {
     });
 }
 
-// Inicializar todas as funcionalidades quando a página carregar
-document.addEventListener('DOMContentLoaded', () => {
-    initializeScrollAnimations();
-    initializeSmoothScroll();
-    initializeCardEffects();
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-    const currentYearEl = document.querySelector('#currentyear');
-    const lastModifiedEl = document.querySelector('#lastModified');
-    if (currentYearEl) currentYearEl.textContent = new Date().getFullYear();
-    if (lastModifiedEl) lastModifiedEl.textContent = `Last modified: ${document.lastModified}`;
-});
-
-
-
 // Função para resetar o formulário
 function resetForm() {
     if (gameForm) {
@@ -571,26 +562,14 @@ function resetForm() {
     if (formSuccess) {
         formSuccess.style.display = 'none';
     }
-    
     // Resetar rating display
     const ratingLabels = document.querySelectorAll('.rating-label');
     ratingLabels.forEach(label => {
         label.style.color = 'var(--text-secondary)';
         label.style.textShadow = 'none';
     });
+    loadSharedGames();
 }
-
-// Adicionar botão para resetar formulário na mensagem de sucesso
-document.addEventListener('DOMContentLoaded', () => {
-    if (formSuccess) {
-        const resetButton = document.createElement('button');
-        resetButton.textContent = 'Compartilhar Outro Jogo';
-        resetButton.className = 'btn btn-secondary';
-        resetButton.style.marginTop = '1rem';
-        resetButton.addEventListener('click', resetForm);
-        formSuccess.appendChild(resetButton);
-    }
-});
 
 // Função para limpar dados salvos (para desenvolvimento/teste)
 function clearSavedGames() {
@@ -601,3 +580,4 @@ function clearSavedGames() {
 
 // Adicionar ao console para facilitar testes
 window.clearSavedGames = clearSavedGames;
+
