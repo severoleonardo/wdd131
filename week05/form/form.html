@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Review Form</title>
+  <link rel="stylesheet" href="../styles/form.css" />
+</head>
+<body>
+  <!-- Main container for the form -->
+  <main>
+    <h1>Product Review</h1>
+
+    <!-- Product review form with GET method and confirmation page as target -->
+    <form action="review.html" method="get">
+      
+      <!-- Product Name dropdown -->
+      <label for="productName">Product Name:</label>
+      <select id="productName" name="productName" required>
+        <option value="" disabled selected>Select a Product...</option>
+        <!-- Options will be dynamically inserted via JavaScript -->
+      </select>
+
+      <!-- Overall rating using radio buttons -->
+      <fieldset>
+        <legend>Overall Rating:</legend>
+        <!-- Each radio input represents one rating level -->
+        <label><input type="radio" name="rating" value="1" required /> ☆</label>
+        <label><input type="radio" name="rating" value="2" /> ☆☆</label>
+        <label><input type="radio" name="rating" value="3" /> ☆☆☆</label>
+        <label><input type="radio" name="rating" value="4" /> ☆☆☆☆</label>
+        <label><input type="radio" name="rating" value="5" /> ☆☆☆☆☆</label>
+      </fieldset>
+
+      <!-- Date of installation -->
+      <label for="installationDate">Date of Installation:</label>
+      <input type="date" id="installationDate" name="installationDate" required />
+
+      <!-- Checkbox list of useful features -->
+      <fieldset>
+        <legend>Useful Features:</legend>
+        <label><input type="checkbox" name="features" value="easyToUse" /> Easy to Use</label>
+        <label><input type="checkbox" name="features" value="durable" /> Durable</label>
+        <label><input type="checkbox" name="features" value="lightweight" /> Lightweight</label>
+        <label><input type="checkbox" name="features" value="highQuality" /> High Quality</label>
+        <label><input type="checkbox" name="features" value="affordable" /> Affordable</label>
+            
+       
+      </fieldset>
+
+      <!-- Optional written review -->
+      <label for="writtenReview">Written Review:</label>
+      <textarea id="writtenReview" name="writtenReview" rows="4" placeholder="Write your thoughts here..."></textarea>
+
+      <!-- Optional user name field -->
+      <label for="userName">Your Name:</label>
+      <input type="text" id="userName" name="userName" placeholder="Optional" />
+
+      <!-- Submit button with clear label -->
+      <input type="submit" value="Submit Review" />
+    </form>
+  </main>
+
+
+  <footer>
+    <p>&copy; 2025 | Leonardo Severo | WDD 131</p>
+  </footer>
+
+  <script src="../scripts/form.js"></script>
+</body>
+</html>
